@@ -1,6 +1,9 @@
 pluginManagement {
 	repositories {
-		mavenCentral()
+		mavenLocal()   //配置先从本地仓库寻找jar包，优先寻找上一个配置，找到不执行下面的配置
+		mavenCentral() //配置从中央仓库寻找
+		google()       //第三方仓库
+		jcenter()      //代码托管库：设置之后可以在项目中轻松引用jcenter上的开源项目
 		gradlePluginPortal()
 		maven { url "https://repo.spring.io/release" }
 	}
@@ -40,6 +43,7 @@ rootProject.name = "spring"
 rootProject.children.each {project ->
 	project.buildFileName = "${project.name}.gradle"
 }
+
 
 settings.gradle.projectsLoaded {
 	gradleEnterprise {
